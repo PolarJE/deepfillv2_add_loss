@@ -17,7 +17,7 @@ Requirement
 Train
 -----
 - Prepare training images filelist and shuffle it
-- Modify [inpaint.yml]() to set DATA_FLIST, LOG_DIR, IMG_SHAPES and other parameters.
+- Modify [inpaint.yml](https://github.com/PolarJE/deepfillv2_add_loss/blob/main/inpaint.yml) to set DATA_FLIST, LOG_DIR, IMG_SHAPES and other parameters.
 - Run `python train.py`.
 
 Test
