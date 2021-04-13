@@ -1,0 +1,58 @@
+# =========================== Basic Settings ===========================
+# machine info
+num_gpus_per_job: 1  # number of gpus each job need
+num_cpus_per_job: 4  # number of gpus each job need
+num_hosts_per_job: 1
+memory_per_job: 32  # number of gpus each job need
+gpu_type: 'nvidia-GTX-1080-ti'
+
+# parameters
+name: 'gated_conv_add_loss'  # any name
+model_restore: 'model_logs/release_places2_256'  
+dataset: 'custom'
+random_crop: True  # Set to false when dataset is 'celebahq', meaning only resize the images to img_shapes, instead of crop img_shapes from a larger raw image. This is useful when you train on images with different resolutions like places2. In these cases, please set random_crop to true.
+val: True  # true if you want to view validation results in tensorboard
+log_dir: 'logs/add_loss_street_256_9' # logs/full_model_places2_256 # logs/full_model_street_256 # logs/add_loss_street_256
+
+# loss
+vgg_path: 'imagenet-vgg-verydeep-19.mat'
+vgg_layer: ['pool1', 'pool2', 'pool3']
+
+gan: 'sngan'
+gan_loss_alpha: 1
+gan_with_mask: True
+discounted_mask: True
+random_seed: False
+padding: 'SAME'
+
+# training
+train_spe: 4000
+max_iters: 100000000
+viz_max_out: 10
+val_psteps: 2000
+
+# data
+data_flist:
+  custom: [
+      'data_flist/train_shuffled.flist',
+      'data_flist/validation_shuffled.flist'
+  ]
+
+static_view_size: 30
+img_shapes: [256, 256, 3]
+height: 128
+width: 128
+max_delta_height: 32
+max_delta_width: 32
+batch_size: 4 #16
+vertical_margin: 0
+horizontal_margin: 0
+
+# loss
+ae_loss: True
+l1_loss: True
+l1_loss_alpha: 1.
+
+# to tune
+guided: False
+edge_threshold: 0.6
