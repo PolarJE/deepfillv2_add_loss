@@ -6,6 +6,11 @@ I added the perceptual loss and the style Loss to the original DeepFill v2 to re
 The perceptual loss and style loss computes the L1 distances but after projecting images into higher level feature spaces using an ImageNet-pretrained VGG-16. In the style loss, I first perform an autocorrelation (Gram matrix) on each feature map before applying the L1 distance.<br>
 If you want to use the perceptual loss and style loss, download [imagenet-vgg-verydeep-19.mat](https://drive.google.com/file/d/15X7W90_3bcBK2PWxbU-8XI6In7MF5hFb/view?usp=sharing) first.
 
+Results
+-------
+<p align="center"><img src="fig3.jpg" width="50%" height="50%"></p>
+<p align="center"><img src="fig4.jpg" width="90%" height="90%"></p>
+
 Requirement
 -----------
 - Python 3
